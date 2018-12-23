@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Progress Circle Plugin Demos</title>
+
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="css/circle.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="progress-circle.js"></script>
+<style>
+#circle {
+  margin: 10px;
+}
+#submit {
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  color: #90c844;
+}
+</style>
+</head>
+
+<body>
+
+<h1 style="margin-top:150px;">jQuery Progress Circle Plugin Demos</h1>
+<div id="inputs">
+            <table>
+                <tr>
+                    <td>Percent:</td>
+                    <td><input type="text" name="size" id="percent" value="50"></td>
+                    <td>(1-100)</td>
+                </tr>
+                <tr>
+                    <td>Circle size:</td>
+                    <td><input type="text" name="size" id="circle-size" value="100"></td>
+                    <td>(positive integer)</td>
+                </tr>
+                <tr>
+                    <td>Thickness:</td>
+                    <td><input type="text" name="size" id="thickness" value="3"></td>
+                    <td>(1-10)</td>
+                </tr>
+                <tr>
+                    <td>Show percentage:</td>
+                    <td><input type="checkbox" name="texttoggle" value="on" id="percentOn" checked="checked"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a><span id="submit"> Redraw circle</span></a></td>
+                </tr>
+            </table>
+            <br />
+</div>
+
+        <div id="circle">
+        </div>
+<script>
+( function( $ ){
+	$( '#circle' ).progressCircle();
+
+	$( '#submit' ).click( function() {
+		var nPercent        = $( '#percent' ).val() ? $( '#percent' ).val() : 50;
+		var showPercentText = $( '#percentOn' ).prop( 'checked' );
+		var thickness       = $( '#thickness' ).val() ? $( '#thickness' ).val() : 3;
+		var circleSize      = $( '#circle-size' ).val() ? $( '#circle-size' ).val() : 100;
+
+		$( '#circle' ).progressCircle({
+			nPercent        : nPercent,
+			showPercentText : showPercentText,
+			thickness       : thickness,
+			circleSize      : circleSize
+		});
+	})
+})( jQuery );
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
